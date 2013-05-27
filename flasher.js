@@ -4,7 +4,7 @@ var _ = require('underscore');
 // Default settings. Use init() to override.
 var options = {
 	namespace : 'flashes',
-	types : ['err', 'message']
+	types : ['error', 'info']
 }
 
 
