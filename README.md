@@ -4,7 +4,7 @@ Configurable flash messages for Express 3. Based on flashify by @bscarvell but w
 	npm install flashify
 
 
-## Setup
+### Setup
 After setting up your express sessions, just register the flasher middleware.
 
 	var express = require('express');
@@ -21,7 +21,7 @@ After setting up your express sessions, just register the flasher middleware.
 
 
 
-# Usage
+### Usage
 In your routes you can then just go:
 
 	req.flash.error("This is an error.");
@@ -42,7 +42,7 @@ When using the req methods your messages will be show in the following response 
 
 
 
-# Configure (Optional)
+### Configure (Optional)
 You can set up as many different type of flash messages as you'd like. Optionally you can also specify the namespace in which you would like to have save your flash messages
 
 	flasher.init({
