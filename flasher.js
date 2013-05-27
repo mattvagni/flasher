@@ -54,18 +54,34 @@ var middleware = function(req, res, next){
 	_.each(options.types, function(type){
 
 		// The request method
-		req.flash[type] = function(text){
-			req.session[options.namespace].push({
-				type : type,
-				text : text
+		req.flash[type] = function(message){
+
+			if(!_.isArray(message)){ // If the user has given us a string instead of an array of messages.
+				var message = [message]; // Convert it to an array;
+			};
+
+			_.each(message, function(text, index, list){
+				req.session[options.namespace].push({
+					type : type,
+					text : text
+				});
 			});
 		};
 
 		// The response method
-		res.flash[type] = function(text){
-			// Create a space for each of our error types in res.locals
-			res.locals[options.namespace][type] = res.locals[options.namespace][type] || [];
-			res.locals[options.namespace][type].push(text);
+		res.flash[type] = function(message){
+
+			if(!_.isArray(message)){ // If the user has given us a string instead of an array.
+				var message = [message]; // Convert it to an array;
+			};
+
+			_.each(message, function(text, index, list){
+				// Create a space for each of our error types in res.locals
+				res.locals[options.namespace][type] = res.locals[options.namespace][type] || [];
+				res.locals[options.namespace][type].push(text);
+			});
+
+
 		};
 
 	});

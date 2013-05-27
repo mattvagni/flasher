@@ -49,9 +49,16 @@ app.get('/redirect-test', function(req, res){
 	});
 
 
+app.get('/multiple-messages', function(req, res){
+	// Show an error message on the next response (the redirect)
+	res.flash.error(["Message 1", "Message 2", "The LAST Message."]);
+	res.render('example.html');
+});
 
 
 
 
-app.listen(3000);
+
+
+app.listen(4646);
 

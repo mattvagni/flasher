@@ -39,12 +39,20 @@ When using the req methods your messages will be show in the following response 
 
 	res.flash.error("This is an error for this response cycle.");
 
+You can also send multiple messages at once if you want. Just pass an array:
+
+	req.flash.error(["Lots of errors.", "Error", "Another Error", "You get the point - Error"]);
+
+
 
 ### Configuration (Optional)
 You can set up as many different type of flash messages as you'd like. Optionally you can also specify the namespace in which you would like to have save your flash messages (this applies to both the template and the session cookie)
 
 	flasher.init({
 		namespace : 'flashMessages', // The namespace where you want to have the flash messages (in your templates and the session cookie)
-		types : ['error', 'info'] // The types of messages you'd like.
+		types : ['error', 'info', 'customType'] // The types of messages you'd like.
 	});
 
+When using custom types the name of your custom type becomes the method name. For example, with the above setup:
+
+	req.flash.customType("EHRMAHGAD.");
