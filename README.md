@@ -1,5 +1,5 @@
 # flasher
-Configurable flash messages for Express 3. Based on flashify by @bscarvell but with a different interface and some configuration options.
+Configurable flash messages for Express 3. Based on [flashify](https://github.com/bscarvell/flashify) by [@bscarvell](https://github.com/bscarvell/) but with a different interface and some configuration options.
 
 	npm install flashify
 
@@ -24,15 +24,14 @@ After setting up your express sessions, just register the flasher middleware.
 ### Usage
 In your routes you can then just go:
 
-	req.flash.error("This is an error.");
-	req.flash.error("This is another error");
-
-	req.flash.info("This is an info message.");
+	req.flash.error("This is an error."); // An error message
+	req.flash.error("This is another error"); // and another
+	req.flash.info("This is an info message."); // An info message, not an error
 
 The above flash messages would be made available to your templates via res.locals like so:
 
 	flashes : {
-		error : ['This is an error'. 'This is another error'],
+		error : ['This is an error', 'This is another error'],
 		info : ['This is an info message']
 	}
 
@@ -41,9 +40,8 @@ When using the req methods your messages will be show in the following response 
 	res.flash.error("This is an error for this response cycle.");
 
 
-
-### Configure (Optional)
-You can set up as many different type of flash messages as you'd like. Optionally you can also specify the namespace in which you would like to have save your flash messages
+### Configuration (Optional)
+You can set up as many different type of flash messages as you'd like. Optionally you can also specify the namespace in which you would like to have save your flash messages (this applies to both the template and the session cookie)
 
 	flasher.init({
 		namespace : 'flashMessages', // The namespace where you want to have the flash messages (in your templates and the session cookie)
