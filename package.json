@@ -1,6 +1,6 @@
 {
   "name": "flasher",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Configurable flash messages for Express 3",
   "main": "flasher.js",
   "keywords" : ["flash messages, express, alerts"],
