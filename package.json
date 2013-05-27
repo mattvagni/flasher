@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "description": "Configurable flash messages for Express 3",
   "main": "flasher.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "keywords" : ["flash messages, express, alerts"],
   "repository": {
     "type": "git",
     "url": "git://github.com/mattvagni/flasher.git"
