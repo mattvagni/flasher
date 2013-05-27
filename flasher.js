@@ -17,7 +17,7 @@ Sets custom settings (optional)
 */
 var init = function(userOptions){
 
-	if (userOptions.types && !_.isArray(userOptions))
+	if (userOptions.types && !_.isArray(userOptions.types))
 		throw Error('If specifying custom flash message types you must provide an Array.')
 
 	if (userOptions.namespace && !_.isString(userOptions.namespace) )
@@ -53,9 +53,6 @@ var middleware = function(req, res, next){
 	// Create the response and re
 	_.each(options.types, function(type){
 
-		// Create a space for each of our error types in res.locals
-		res.locals[options.namespace][type] = [];
-
 		// The request method
 		req.flash[type] = function(text){
 			req.session[options.namespace].push({
@@ -66,6 +63,8 @@ var middleware = function(req, res, next){
 
 		// The response method
 		res.flash[type] = function(text){
+			// Create a space for each of our error types in res.locals
+			res.locals[options.namespace][type] = res.locals[options.namespace][type] || [];
 			res.locals[options.namespace][type].push(text);
 		};
 
@@ -79,6 +78,7 @@ var middleware = function(req, res, next){
 		_.each(req.session[options.namespace], function(element, index, list){
 
 			// Let's add all messages currently in the session to res locals
+			res.locals[options.namespace][element.type] = res.locals[options.namespace][element.type] || [];
 			res.locals[options.namespace][element.type].push(element.text);
 
 		});

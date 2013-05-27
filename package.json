@@ -1,0 +1,25 @@
+{
+  "name": "flasher",
+  "version": "0.0.1",
+  "description": "Configurable flash messages for Express 3",
+  "main": "flasher.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattvagni/flasher.git"
+  },
+  "author": "Mathias Vagni",
+  "license": "BSD",
+  "gitHead": "5c17be5337793bd9ad9bf362bc678c8335503bc8",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "underscore": "~1.4.4"
+  },
+  "devDependencies": {
+    "express": "~3.2.5",
+    "consolidate": "~0.9.1",
+    "swig": "~0.13.5"
+  }
+}

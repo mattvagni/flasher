@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Testing</title>
+
+	<style type="text/css">
+		html{ font-family: sans-serif; }
+	</style>
+</head>
+<body>
+	<h2>Hello, this is a test.</h2>
+
+	{% if flashMessages.error %}
+		<h4><strong>Error:</strong></h4>
+
+		<ul>
+		{% for message in flashMessages.error %}
+			<li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+
+	{% if flashMessages.message %}
+		<h4><strong>Messages:</strong></h4>
+
+		<ul>
+		{% for message in flashMessages.message %}
+			<li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+
+</body>
+</html>
