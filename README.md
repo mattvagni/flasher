@@ -1,4 +1,7 @@
 # flasher
+####__:loudspeaker: Warning:__ this package is very old. I don't recommend you use it.
+
+
 Configurable flash messages for Express 3. Based on [flashify](https://github.com/bscarvell/flashify) by [@bscarvell](https://github.com/bscarvell/) but with a different interface and some configuration options.
 ````javascript
 npm install flashify
